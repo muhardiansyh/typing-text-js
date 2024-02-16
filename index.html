@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Sorry</title>
+</head>
+<body>
+    <div class="container position-absolute justify-content-center d-flex flex-column align-items-center px-4">
+        <img src="https://i.pinimg.com/736x/fc/58/10/fc58102f0266f75ba5cbff3ef7d2aef9.jpg" alt="" class="rounded-circle mt-5 imgchar" width="150">
+        <h1 class="nama text-white">Eunwoo</h1>
+        <div class="message mt-2 px-5 bg-white py-3 rounded-4 d-flex align-items-center">
+            Belum ada pesan...
+        </div>
+        <div class="choice mt-3">
+            <input type="button" class="px-4 bg-white py-1 rounded-4 border border-0 btn" value="Ngomong!">
+        </div>
+    </div>
+    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script>
+    const btn = document.querySelector('.btn')
+    const messageBox = document.querySelector('.message')
+    const imgChar = document.querySelector('.imgchar')
+    let nama = document.querySelector('.nama')
+
+    var i = 0;
+    let txt = ''
+    let quotes = [
+        'annyeonghaseyo kumaha damang erin? ada eunwo disinii hehe dan mau nemenin kamu pas lagi di mood apapun 😁👍',
+        'gimana perasaan kamu hari ini? aku harap kamu dalam keadaan mood yg baik saja yaa',
+        'namun jika hari kamu buruk, maka cerita sama aku yukk, aku bersedia mendengarkan apapun ceritamuu',
+        'kamu sudah makan belum? ingat yaa harus makan teratur dan jaga pola tidurmu!! jaga kesehatanmu yaaa',
+        'itu saja yg ingin aku sampaikan padamu hari ini, namun setelah ini ada yg ingin berbicara denganmu',
+        'annyeonghaseyo eriin, winwin disini, kamu apa kabar?? aku rindu berbicara dengan mu',
+        'bagaimana moodmu hari ini? makan mu teratur kan? jangan tidur terlalu larut yaa',
+        'aku harap aku bisa berbincang dengan mu lebih lama, namun sekarang saat nya kamu beristirahat erin!',
+        'aku sudahi dulu obrolan kita hari ini ya? mungkin besok kita sambung kembali obrolan ini bersama member lainn',
+        'ingatt pesanku erinn!! tetaplah sehat baik mood, pikiran, ataupun jasmanimu!',
+        'baik sekarang saatnya tidurr',
+        'good night erinn, sampai esok lagi',
+        '--SAMPE SINI DLU KRNA UDH MALEM HEHE--'
+
+
+    ]
+    let index = 0
+    var speed = 50; 
+    
+    function typeWriter() {
+        if (i < txt.length) {
+            btn.disabled = true
+            messageBox.innerHTML += txt.charAt(i)
+            i++;
+            setTimeout(typeWriter, speed);
+        }
+        if(i == txt.length){
+            btn.value = 'ngomong lagii!'
+            btn.disabled = false
+        }
+    }
+    btn.addEventListener('click', () => {
+        messageBox.innerHTML = ''
+        typeWriter()
+        newQuote()
+    })
+    
+    function newQuote() {
+        txt = quotes[index++]
+        if(index == 6) {
+            imgChar.src = 'https://pm1.aminoapps.com/7726/10ecd1638dec6b982930a806ffc9110203b1027fr1-720-899v2_uhq.jpg'
+            nama.innerHTML = 'Winwin'
+        }
+        i = 0;
+        typeWriter();
+    }
+
+
+
+
+
+</script>
+</body>
+</html>
